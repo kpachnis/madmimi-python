@@ -402,3 +402,10 @@ class MadMimi(object):
         """Get an XML document containing stats for all your promotions."""
 
         return self._get('promotions.xml')
+
+    def mailing_stats(self, promotion_id, mailing_id):
+        return self._get('/promotions/%s/mailings/%s.xml' % (promotion_id, mailing_id))
+
+    def search(self, query):
+        url = '/promotions/search.xml' 
+        return self._get(url, query=query)
